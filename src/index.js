@@ -23,12 +23,10 @@ cron.schedule('* * * * *', () => {
     .get('https://api.hgbrasil.com/finance')
     .then(async res => {
       await Finance.create(res.data.results.currencies);
+      console.log("Created currencies at " + Date(Date.now().toString()));
     }).catch(function (error) {
       console.log(error);
     })
-    .then(function () {
-
-    });
 });
 
 app.listen(process.env.PORT || 3000);
