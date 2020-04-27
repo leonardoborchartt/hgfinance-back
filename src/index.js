@@ -13,7 +13,7 @@ mongoose.connect('mongodb+srv://migrate:migrate@cluster0-caszl.mongodb.net/teste
 app.use(express.json());
 app.use(cors());
 
-app.get('/finance', async (req, res) => {
+app.get('/', async (req, res) => {
   const finances = await Finance.find();
   return res.json(finances);
 });
